@@ -33,10 +33,10 @@ public class ManagmentTests {
 	
 	@Test
 	public void toJson() {
-		Account a1 = new Account("Tim1", "Tim2", 1);
-		Account a2 = new Account("Tim3", "Tim4", 2);
-		service.addAccount(a1);
-		service.addAccount(a2);
+		Account test1 = new Account("Tim1", "Tim2", 1);
+		Account test2 = new Account("Tim3", "Tim4", 2);
+		service.addAccount(test1);
+		service.addAccount(test2);
 		String output = "{\"1\":{\"firstName\":\"Tim1\",\"lastName\":\"Tim2\",\"accountNumber\":1},\"2\":{\"firstName\":\"Tim3\",\"lastName\":\"Tim4\",\"accountNumber\":2}}";
 		assertEquals(output, service.convertToJson());
 	}
