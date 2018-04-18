@@ -8,8 +8,8 @@ import com.google.gson.Gson;
 
 public class Service {
 
-	 static Map<Integer, Account> accounts = new HashMap<Integer, Account>();  
-	 static Gson gson = new Gson(); 
+	 private Map<Integer, Account> accounts = new HashMap<Integer, Account>();  
+	 private Gson gson = new Gson(); 
 	
 	public static void main(String[] args) {
 		//empty for now, was used during testing
@@ -29,13 +29,13 @@ public class Service {
 		return number;
 	}
 	
-	public static String convertToJson() {
+	public String convertToJson() {
 		
 		String json = gson.toJson(accounts); 
 		return json;
 	}
 	
-	public static Map<Integer,Account> convertToObject(String stringMap) {
+	public Map<Integer,Account> convertToObject(String stringMap) {
 		
 		Map<Integer,Account> newMap = gson.fromJson(stringMap, HashMap.class); 
 		return newMap;
@@ -46,7 +46,7 @@ public class Service {
 		return accounts;
 	}
 	
-	public static boolean addAccount(Account account) {
+	public boolean addAccount(Account account) {
 		
 		Account exists = accounts.get(account.getAccountNumber());	
 		if(exists != null) {
