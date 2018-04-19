@@ -1,6 +1,7 @@
 package testingManagment;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import managmentSystem.*;
 
@@ -40,5 +41,31 @@ public class ManagmentTests {
 		String output = "{\"1\":{\"firstName\":\"Tim1\",\"lastName\":\"Tim2\",\"accountNumber\":1},\"2\":{\"firstName\":\"Tim3\",\"lastName\":\"Tim4\",\"accountNumber\":2}}";
 		assertEquals(output, service.convertToJson());
 	}
+	
+	@Test
+	public void search() {
+		service.addAccount(a1);
+		service.addAccount(a2);
+		service.addAccount(a3);
+		service.addAccount(new Account("Tib", "Man", service.generateAccountNumber()));
+		service.addAccount(new Account("Jason", "Tib", service.generateAccountNumber()));
+		assertEquals(2, service.search("Tib"));
+		assertEquals(2, service.search("Jason"));
+		assertEquals(0, service.search("Nidesh"));
+	}
+	
+	@Test
+	public void search8() {
+		service.addAccount(a1);
+		service.addAccount(a2);
+		service.addAccount(a3);
+		service.addAccount(new Account("Tib", "Man", service.generateAccountNumber()));
+		service.addAccount(new Account("Jason", "Tib", service.generateAccountNumber()));
+		assertEquals(2, service.search8("Tib"));
+		assertEquals(2, service.search8("Jason"));
+		assertEquals(0, service.search8("Nidesh"));
+	}
+	
+	
 	
 }
