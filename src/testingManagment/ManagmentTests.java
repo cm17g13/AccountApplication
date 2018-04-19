@@ -1,7 +1,6 @@
 package testingManagment;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
 
 import org.junit.jupiter.api.Test;
 import managmentSystem.*;
@@ -54,5 +53,19 @@ public class ManagmentTests {
 		assertEquals(2, service.search("Jason"));
 		assertEquals(0, service.search("Nidesh"));
 	}
+	
+	@Test
+	public void search8() {
+		service.addAccount(a1);
+		service.addAccount(a2);
+		service.addAccount(a3);
+		service.addAccount(new Account("Tib", "Man", service.generateAccountNumber()));
+		service.addAccount(new Account("Jason", "Tib", service.generateAccountNumber()));
+		assertEquals(2, service.search8("Tib"));
+		assertEquals(2, service.search8("Jason"));
+		assertEquals(0, service.search8("Nidesh"));
+	}
+	
+	
 	
 }

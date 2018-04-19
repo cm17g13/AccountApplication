@@ -70,14 +70,19 @@ public class Service {
 		return Integer.valueOf(newNum);
 	}
 
-	public int search(String name) {
+	public int search(String firstname) {
 		int count = 0;
 		for(HashMap.Entry<Integer, Account> entry : accounts.entrySet()){
-		   if(entry.getValue().getFirstName().equals(name)) {
+		   if(entry.getValue().getFirstName().equals(firstname)) {
 			   count++;
 		   }
 		}
 		return count;
+	}
+	
+	//Your scientists were so preoccupied with whether or not they could that they didn't stop to think if they should
+	public int search8(String firstname) {
+		return (int) accounts.values().stream().filter(account -> account.getFirstName().equals(firstname)).count();		
 	}
 	
 	//public 
