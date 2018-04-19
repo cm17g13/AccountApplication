@@ -70,4 +70,16 @@ public class Service {
 		return Integer.valueOf(newNum);
 	}
 
+	public int search(String name) {
+		int count = 0;
+		for(HashMap.Entry<Integer, Account> entry : accounts.entrySet()){
+		   if(entry.getValue().getFirstName().equals(name)) {
+			   count++;
+		   }
+		}
+		return count;
+	}
+	
+	//public 
+
 }

@@ -50,9 +50,9 @@ public class ManagmentTests {
 		service.addAccount(a3);
 		service.addAccount(new Account("Tib", "Man", service.generateAccountNumber()));
 		service.addAccount(new Account("Jason", "Tib", service.generateAccountNumber()));
-		assertEquals(2, service.seach("Tib"));
-		assertEquals(2, service.seach("Jason"));
-		assertEquals(0, service.seach("Nidesh"));
+		assertEquals(2, service.search("Tib"));
+		assertEquals(2, service.search("Jason"));
+		assertEquals(0, service.search("Nidesh"));
 	}
 	
 }
